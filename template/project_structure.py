@@ -1,4 +1,3 @@
-from src.constants.constants import *
 from dataclasses import dataclass
 from typing import List
 

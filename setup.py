@@ -3,7 +3,6 @@ from setuptools import find_namespace_packages, setup
 PROJECT_NAME = "Dockerize Model"
 VERSION = "0.0.0"
 AUTHOR = "Ahmed"
-REPO_NAME = "Fruits-Classification"
 
 setup(
     name=PROJECT_NAME,

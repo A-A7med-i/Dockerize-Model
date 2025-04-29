@@ -1,4 +1,5 @@
 from .project_structure import ProjectStructure
+from src.constants.constants import *
 from pathlib import Path
 import logging
 import sys
@@ -16,7 +17,7 @@ class ProjectSetup:
         structure (ProjectStructure): Project structure configuration
     """
 
-    def __init__(self, project_name: str, log_dir: str = "logs") -> None:
+    def __init__(self, project_name: str, log_dir: str = LOG_DIR) -> None:
         """
         Initialize ProjectSetup with project name and log directory.
 
@@ -33,12 +34,12 @@ class ProjectSetup:
     def setup_logging(self) -> None:
         """Configure logging with file and console handlers."""
         self.log_dir.mkdir(exist_ok=True)
-        log_file = self.log_dir / "logging.log"
+        log_file = os.path.join(LOG_DIR, LOG_FILE)
 
         logging.basicConfig(
             level=logging.INFO,
-            format="[%(asctime)s]: %(message)s",
-            datefmt="%Y-%m-%d %H-%M-%S",
+            format=LOGGING_FORMAT,
+            datefmt=DATEFMT,
             handlers=[
                 logging.FileHandler(log_file),
                 logging.StreamHandler(sys.stdout),

@@ -17,7 +17,13 @@ class ProjectStructure:
 
     def __init__(self):
         """Initialize default project structure."""
-        self.directories = ["data/raw/", "data/processed/", "src/constants", "config"]
+        self.directories = [
+            "data/raw/",
+            "data/processed/",
+            "src/constants",
+            "config",
+            "src/utils",
+        ]
 
         self.files = [
             "setup.py",
@@ -25,6 +31,8 @@ class ProjectStructure:
             "src/constants/constants.py",
             "src/constants/__init__.py",
             "config/config.yml",
+            "src/utils/__init__.py",
+            "src/utils/helper.py",
             ".gitignore",
             "README.md",
             "LICENSE",

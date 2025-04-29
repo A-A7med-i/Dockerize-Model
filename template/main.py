@@ -1,4 +1,5 @@
 from template.project_setup import ProjectSetup
+from src.utils.helper import log_separator
 from src.constants.constants import *
 import sys
 
@@ -18,8 +19,7 @@ def main():
         setup.logger.error(f"An unexpected error occurred: {e}")
         sys.exit(1)
     finally:
-        setup.logger.info("Project setup process completed")
-        setup.logger.info(f"{'-' * 50}")
+        log_separator()
 
 
 if __name__ == "__main__":

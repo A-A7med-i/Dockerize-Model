@@ -9,5 +9,5 @@ setup(
     version=VERSION,
     author=AUTHOR,
     description="A small package for simple cnn app",
-    packages=find_namespace_packages(include=["src.*", "template.*"]),
+    packages=find_namespace_packages(include=["src", "template"]),
 )

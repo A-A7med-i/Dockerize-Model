@@ -1,6 +1,7 @@
 from src.constants.constants import *
 from typing import Any, Dict, Union
 from pathlib import Path
+from src import logger
 import yaml
 import os
 
@@ -47,4 +48,9 @@ def load_yaml(path: Union[str, Path]) -> Dict[str, Any]:
             return yaml.safe_load()
 
     except FileNotFoundError:
+        logger.error(f"Config file not found at: {path}")
         raise FileNotFoundError(f"Config file not found at: {path}")
+
+    except yaml.YAMLError as e:
+        logger.error(f"Error parsing YAML file: {e}")
+        raise

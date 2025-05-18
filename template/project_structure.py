@@ -25,6 +25,7 @@ class ProjectStructure:
             "src/data",
             "src/processing",
             "src/visualization",
+            "src/models",
             "config",
         ]
 
@@ -41,6 +42,8 @@ class ProjectStructure:
             "src/processing/processor.py",
             "src/visualization/__init__.py",
             "src/visualization/plot.py",
+            "src/models/__init__.py",
+            "src/models/model.py",
             "requirements.txt",
             ".gitignore",
             "README.md",

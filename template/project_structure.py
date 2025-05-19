@@ -18,6 +18,7 @@ class ProjectStructure:
     def __init__(self):
         """Initialize default project structure."""
         self.directories = [
+            "models/checkpoints",
             "data/raw/",
             "data/processed/",
             "src/constants",
@@ -26,6 +27,7 @@ class ProjectStructure:
             "src/processing",
             "src/visualization",
             "src/models",
+            "src/api",
             "config",
         ]
 
@@ -44,6 +46,11 @@ class ProjectStructure:
             "src/visualization/plot.py",
             "src/models/__init__.py",
             "src/models/model.py",
+            "src/api/__init__.py",
+            "src/api/endpoints.py",
+            "src/api/main.py",
+            "src/api/schemas.py",
+            "models/checkpoints/.gitkeep",
             "requirements.txt",
             ".gitignore",
             "README.md",

@@ -28,11 +28,9 @@ class ProjectStructure:
             "src/visualization",
             "src/models",
             "src/api",
-            "config",
         ]
 
         self.files = [
-            "config/config.yml",
             "src/__init__.py",
             "src/constants/constants.py",
             "src/constants/__init__.py",
@@ -50,6 +48,7 @@ class ProjectStructure:
             "src/api/endpoints.py",
             "src/api/main.py",
             "src/api/schemas.py",
+            "src/api/process.py",
             "models/checkpoints/.gitkeep",
             "requirements.txt",
             ".gitignore",

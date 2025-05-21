@@ -62,9 +62,7 @@ class FruitImageDataset:
 
                 detected_fruit_category = None
                 for fruit_category in self.fruit_categories:
-                    if (
-                        fruit_category.lower() in parent_dir_name.lower()
-                    ):  # Case-insensitive check
+                    if fruit_category.lower() in parent_dir_name.lower():
                         detected_fruit_category = fruit_category
                         break
                 self._image_paths_with_labels.append(

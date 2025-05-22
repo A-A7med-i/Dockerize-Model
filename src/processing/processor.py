@@ -17,7 +17,7 @@ class ImageProcessor:
         target_width (int): The target width to resize images to while maintaining aspect ratio.
     """
 
-    def __init__(self, target_width: int = 300) -> None:
+    def __init__(self, target_width: int = TARGET_WIDTH) -> None:
         """
         Initialize the ImageProcessor with a target width for resizing.
 

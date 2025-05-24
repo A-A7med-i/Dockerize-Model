@@ -1,8 +1,8 @@
-from src.constants.constants import *
-from typing import Any, Dict, Union
-from pathlib import Path
+from src.constants.constants import LOG_DIR, LOG_FILE
+from typing import Optional
+import tensorflow as tf
 from src import logger
-import yaml
+
 import os
 
 
@@ -27,30 +27,34 @@ def log_separator(
         file.write(f"{separator_line}\n")
 
 
-def load_yaml(path: Union[str, Path]) -> Dict[str, Any]:
+def load_model(path: str) -> Optional[tf.keras.Model]:
     """
-    Read and parse YAML configuration file.
+    Load a TensorFlow Keras model from the specified path.
 
     Args:
-                    path: Path to YAML config file (string or Path object)
+        path (str): The file path to the saved model.
 
     Returns:
-                    Dict containing configuration parameters
+        Optional[tf.keras.Model]: The loaded model if successful, None otherwise.
 
     Raises:
-                    FileNotFoundError: If config file doesn't exist
-                    yaml.YAMLError: If the file contains invalid YAML
+        FileNotFoundError: If the model file does not exist.
     """
-    path = Path(path)
+
+    if not os.path.exists(path):
+
+        logger.error(f"Model path does not exist: {path}")
+        raise FileNotFoundError(f"Model file not found at: {path}")
 
     try:
-        with path.open("r") as file:
-            return yaml.safe_load()
+        model = tf.keras.models.load_model(path)
+        logger.info(f"Model successfully loaded from: {path}")
+        return model
 
-    except FileNotFoundError:
-        logger.error(f"Config file not found at: {path}")
-        raise FileNotFoundError(f"Config file not found at: {path}")
+    except (IOError, ImportError) as e:
+        logger.error(f"Failed to load model from {path}: {str(e)}")
+        return None
 
-    except yaml.YAMLError as e:
-        logger.error(f"Error parsing YAML file: {e}")
-        raise
+    except Exception as e:
+        logger.error(f"Unexpected error loading model from {path}: {str(e)}")
+        return None

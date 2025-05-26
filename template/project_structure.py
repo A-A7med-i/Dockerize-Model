@@ -28,6 +28,7 @@ class ProjectStructure:
             "src/visualization",
             "src/models",
             "src/api",
+            "notebooks",
         ]
 
         self.files = [
@@ -51,6 +52,9 @@ class ProjectStructure:
             "src/api/process.py",
             "models/checkpoints/.gitkeep",
             "requirements.txt",
+            "notebooks/EDA.ipynb",
+            "notebooks/experiments.ipynb",
+            "notebooks/exploratory.ipynb",
             ".gitignore",
             "README.md",
             "LICENSE",

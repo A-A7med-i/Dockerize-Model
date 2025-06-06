@@ -2,6 +2,10 @@
 MODEL_PATH = "/media/ahmed/Data/Dockerize-Model/models/checkpoints/model.keras"
 PROCESSED_DATA = "/media/ahmed/Data/Dockerize-Model/data/processed"
 RAW_DATA = "/media/ahmed/Data/Dockerize-Model/data/raw/images"
+X_TRAIN = "/media/ahmed/Data/Dockerize-Model/data/processed/x_train.json"
+X_TEST = "/media/ahmed/Data/Dockerize-Model/data/processed/x_test.json"
+Y_TRAIN = "/media/ahmed/Data/Dockerize-Model/data/processed/y_train.json"
+Y_TEST = "/media/ahmed/Data/Dockerize-Model/data/processed/y_test.json"
 LOG_FILE = "logging.log"
 LOG_DIR = "logs"
 
@@ -26,6 +30,15 @@ FRUIT_CATEGORIES = [
     "rotten_pomegranates",
     "rotten_strawberries",
 ]
+
+ENCODER = {
+    "rotten_peaches": 0,
+    "fresh_pomegranates": 1,
+    "rotten_strawberries": 2,
+    "rotten_pomegranates": 3,
+    "fresh_strawberries": 4,
+    "fresh_peaches": 5,
+}
 
 FRUIT_MAP = {
     0: "rotten_peaches",
@@ -112,8 +125,7 @@ FILES = [
     "requirements.txt",
     "notebooks/EDA.ipynb",
     "notebooks/experiments.ipynb",
-    "notebooks/exploratory.ipynb",
-    "DockerFile",
+    "Dockerfile",
     ".gitignore",
     "README.md",
     "LICENSE",

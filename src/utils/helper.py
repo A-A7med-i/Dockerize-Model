@@ -1,9 +1,11 @@
 from src.constants.constants import LOG_DIR, LOG_FILE
-from typing import Optional
+from typing import Any, Dict, List, Union, Optional
 import tensorflow as tf
 from src import logger
-
+import json
 import os
+
+
 
 
 def log_separator(
@@ -58,3 +60,37 @@ def load_model(path: str) -> Optional[tf.keras.Model]:
     except Exception as e:
         logger.error(f"Unexpected error loading model from {path}: {str(e)}")
         return None
+
+
+def save_json(data: List, file_path: str) -> None:
+    """Save data to a JSON file with proper formatting.
+
+    Args:
+        data: The data to save (dict or list)
+        file_path: Path where to save the JSON file
+    """
+    try:
+        with open(file_path, "w", encoding="utf-8") as file:
+            json.dump(data, file, ensure_ascii=False)
+    except (IOError, TypeError) as e:
+        raise Exception(f"Failed to save JSON to {file_path}: {e}")
+
+
+def load_json(file_path: str) -> List:
+    """Load data from a JSON file.
+
+    Args:
+        file_path: Path to the JSON file to load
+
+    Returns:
+        The loaded JSON data (dict or list)
+    """
+    try:
+        with open(file_path, "r", encoding="utf-8") as file:
+            return json.load(file)
+    except FileNotFoundError:
+        raise FileNotFoundError(f"JSON file not found: {file_path}")
+    except json.JSONDecodeError as e:
+        raise ValueError(f"Invalid JSON format in {file_path}: {e}")
+    except IOError as e:
+        raise Exception(f"Failed to read JSON from {file_path}: {e}")

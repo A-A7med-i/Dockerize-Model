@@ -1,2 +1,22 @@
+# Deep Learning and Data Science
 numpy
 pandas
+scikit-learn
+matplotlib
+seaborn
+opencv-python
+
+# Deep Learning Frameworks
+tensorflow
+keras
+
+# API and Web
+fastapi
+uvicorn
+pillow
+
+# Utilities
+pyyaml
+
+# Jupyter and Development
+jupyter
